@@ -1,0 +1,17 @@
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+palvelin-->selain: HTML koodi
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+palvelin-->selain: main.js
+
+Selain lähettää post requestin palvelimelle, jossa on lomakkeelle syötetty data.Se vastaa 302 eli uudelleenohjauspyyntö, minkä avulla palvelin kehottaa selainta tekemään uuden HTTP GET -pyynnön.
+Selain lataa muistiinpano sivun uudelleen ja saa aikaan myös kolme muuta HTTP-pyyntöä.
+Nähtävissä on myös lomakkeen mukana lähetetty data.
+Post pyyntöön liitettävä data on mukana bodynä.
+Palvelin saa POST -pyynnön datan request.body kentästä.
+Selain renderöi uuden muistiinpanon sivulle.
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: {content: "asd", date: "2022-01-12T15:12:34.162Z"}
+

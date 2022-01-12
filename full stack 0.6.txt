@@ -1,0 +1,19 @@
+
+Selain lähettää lomakkeelle syötetyn datan palvelimelle.
+
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+palvelin-->selain: HTML-koodi
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+palvelin-->selain: spa.js
+
+Lomakkeen lähettäminen aiheuttaa HTTP GET -pyyntöjä.
+Palvelin vastaa statuskoodilla 201
+Sitten main.cc ja spa.js ladataan.
+Selain alkaa suorittamaan js-koodia, joka pyytää JSON-datan palvelimelta.
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: {content: "lol", date: "2022-01-12T17:04:35.542Z"}
+
+Lopuksi selain suorittaa tapahtumankäsittelijän, joka renderöi muistiinpanot näytölle 
